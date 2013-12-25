@@ -1,0 +1,4 @@
+include README.txt
+include LICENSE.txt
+recursive-include lfc_newsletter/templates *
+recursive-include lfc_newsletter/locale *
