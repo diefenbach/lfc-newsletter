@@ -1,0 +1,26 @@
+{% load lfc_tags i18n %}
+<div class="portlet newsletter-portlet">
+    {% if title %}
+        <h1 class="portlet-header">
+            {{ title }}
+        </h1>
+    {% endif %}
+    <div class="portlet-body">
+        {% if request.GET.msg == "0" %}
+            <div class="msg">
+                {% trans "Please enter a valid e-mail address" %}
+            </div>
+        {% endif %}
+        {% if request.GET.msg == "1" %}
+            <div class="msg">
+                {% trans "Your e-mail address has been saved." %}
+            </div>
+        {% endif %}
+        <form action="{% url lfc_newsletter_add_subscriber %}"
+              method="POST">
+            {% csrf_token %}
+            <input type="input" name="email" />
+            <input type="submit" value="Abonnieren" />
+        </form>
+    </div>
+</div>
