@@ -6,6 +6,9 @@
         </h1>
     {% endif %}
     <div class="portlet-body">
+        <p>
+            Bitte tragen Sie Ihre E-Mail Adresse ein:
+        </p>
         {% if request.GET.msg == "0" %}
             <div class="msg">
                 {% trans "Please enter a valid e-mail address" %}
@@ -19,8 +22,8 @@
         <form action="{% url lfc_newsletter_add_subscriber %}"
               method="POST">
             {% csrf_token %}
-            <input type="input" name="email" />
-            <input type="submit" value="Abonnieren" />
+            <input class="email" type="input" name="email" />
+            <input class="signup" type="submit" value="Abonnieren" />
         </form>
     </div>
 </div>
